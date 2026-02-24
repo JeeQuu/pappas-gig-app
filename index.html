@@ -1329,6 +1329,19 @@
       toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2200);
     }
 
+    /* ---------- FULLSCREEN ---------- */
+    function goFullscreen() {
+      var el = document.documentElement;
+      var rfs = el.requestFullscreen || el.webkitRequestFullscreen;
+      if (rfs) rfs.call(el);
+    }
+
+    // Gå till fullscreen vid första interaktion
+    document.addEventListener('click', function once() {
+      goFullscreen();
+      document.removeEventListener('click', once);
+    });
+
     /* ---------- INIT ---------- */
     loadState();
     updateLive();

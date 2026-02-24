@@ -3,7 +3,7 @@
   "short_name": "Pappas Gig",
   "description": "Musikspelare för live-spelningar",
   "start_url": "./index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "any",
   "background_color": "#0D0B09",
   "theme_color": "#0D0B09",
