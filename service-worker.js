@@ -1,21 +1,30 @@
-const CACHE_NAME = 'pappas-gig-v2';
+const CACHE_NAME = 'pappas-gig-v3';
 
 const ALL_FILES = [
   './',
   './index.html',
   './manifest.json',
   './icon.svg',
+  './musik/Alska%20glomma%20och%20forlata.mp3',
   './musik/Crazy.mp3',
   './musik/Ett%20av%20dom%20satt.mp3',
   './musik/For%20dina%20blaa%20ogons%20skull.mp3',
   './musik/Good%20Luck%20Charm.mp3',
+  './musik/Help%20Me%20Make%20It%20Through%20The%20Night.mp3',
   './musik/I%20mina%20skor.mp3',
   './musik/I%20Need%20More%20Of%20You.mp3',
+  './musik/Inga%20stora%20bevingade%20ord.mp3',
   './musik/Jag%20har%20bott%20vid%20en%20landsvag.mp3',
   './musik/Leende%20guldbruna%20ogon.mp3',
   './musik/Living%20Doll.mp3',
+  './musik/Ljus%20och%20varme.mp3',
   './musik/Minnen.mp3',
-  './musik/Tro%20mig%20jag%20behover%20dig.mp3'
+  './musik/Natten%20har%20tusen%20ogon.mp3',
+  './musik/Sag%20hur%20har%20du%20det%20med%20karleken.mp3',
+  './musik/The%20Great%20Snowman.mp3',
+  './musik/Travellin%20Light.mp3',
+  './musik/Tro%20mig%20jag%20behover%20dig.mp3',
+  './musik/Vi%20har%20sa%20mycket%20att%20saga%20varann.mp3'
 ];
 
 // Install: cache EVERYTHING including all mp3s
