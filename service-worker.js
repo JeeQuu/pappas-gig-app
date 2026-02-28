@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pappas-gig-v3';
+const CACHE_NAME = 'pappas-gig-v4';
 
 const ALL_FILES = [
   './',
@@ -21,6 +21,7 @@ const ALL_FILES = [
   './musik/Minnen.mp3',
   './musik/Natten%20har%20tusen%20ogon.mp3',
   './musik/Sag%20hur%20har%20du%20det%20med%20karleken.mp3',
+  './musik/Teddy%20Bear.mp3',
   './musik/The%20Great%20Snowman.mp3',
   './musik/Travellin%20Light.mp3',
   './musik/Tro%20mig%20jag%20behover%20dig.mp3',
