@@ -952,6 +952,7 @@
       }
       // Stoppa nuvarande men spela inte nästa - DJ-läge
       audio.pause();
+      audio.src = '';
       isPlaying = false;
       stopProgress();
       document.getElementById('progress-fill').style.width = '0%';
@@ -968,6 +969,7 @@
       state.currentIndex = state.currentIndex > 0 ? state.currentIndex - 1 : p.songs.length - 1;
       // Stoppa nuvarande men spela inte föregående - DJ-läge
       audio.pause();
+      audio.src = '';
       isPlaying = false;
       stopProgress();
       document.getElementById('progress-fill').style.width = '0%';
@@ -987,6 +989,7 @@
         state.currentIndex = ni;
         save();
       }
+      audio.src = '';
       isPlaying = false;
       stopProgress();
       document.getElementById('progress-fill').style.width = '0%';
