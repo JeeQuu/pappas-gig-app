@@ -941,12 +941,6 @@
     }
 
     function nextSong() {
-      if (state.queue.length) {
-        currentQueuedSong = state.queue.shift();
-        playFile(currentQueuedSong);
-        save();
-        return;
-      }
       currentQueuedSong = null;
       var p = pl();
       if (!p) return;
@@ -956,45 +950,49 @@
       } else {
         state.currentIndex = 0;
       }
-      playFile(p.songs[state.currentIndex]);
+      // Stoppa nuvarande men spela inte nästa - DJ-läge
+      audio.pause();
+      isPlaying = false;
+      stopProgress();
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('time-current').textContent = '0:00';
+      document.getElementById('time-total').textContent = '0:00';
       save();
+      updateLive();
     }
 
     function prevSong() {
       currentQueuedSong = null;
       var p = pl();
       if (!p) return;
-      if (audio.currentTime > 3) {
-        audio.currentTime = 0;
-        if (!isPlaying) { audio.play(); isPlaying = true; }
-        updateLive();
-        return;
-      }
       state.currentIndex = state.currentIndex > 0 ? state.currentIndex - 1 : p.songs.length - 1;
-      playFile(p.songs[state.currentIndex]);
+      // Stoppa nuvarande men spela inte föregående - DJ-läge
+      audio.pause();
+      isPlaying = false;
+      stopProgress();
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('time-current').textContent = '0:00';
+      document.getElementById('time-total').textContent = '0:00';
       save();
+      updateLive();
     }
 
     audio.addEventListener('ended', function() {
-      if (state.queue.length) {
-        currentQueuedSong = state.queue.shift();
-        playFile(currentQueuedSong);
-        save();
-        return;
-      }
+      // Låt slut: gå vidare till nästa men spela inte automatiskt
       currentQueuedSong = null;
       var p = pl();
       if (!p) return;
       var ni = state.currentIndex + 1;
       if (ni < p.songs.length) {
         state.currentIndex = ni;
-        playFile(p.songs[ni]);
         save();
-      } else {
-        isPlaying = false;
-        stopProgress();
-        updateLive();
       }
+      isPlaying = false;
+      stopProgress();
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('time-current').textContent = '0:00';
+      document.getElementById('time-total').textContent = '0:00';
+      updateLive();
     });
 
     /* ---------- PROGRESS ---------- */
