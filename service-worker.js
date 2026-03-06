@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pappas-gig-v6';
+const CACHE_NAME = 'pappas-gig-v7';
 
 const ALL_FILES = [
   './',
