@@ -201,28 +201,29 @@
     }
 
     .live-song-number {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-faint);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dim);
       margin-bottom: 8px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     .live-song-title {
-      font-size: clamp(32px, 7vw, 56px);
+      font-size: clamp(40px, 9vw, 72px);
       font-weight: 800;
       color: var(--text);
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 16px;
-      max-width: 700px;
+      max-width: 800px;
       word-break: break-word;
     }
 
     .live-next-song {
-      font-size: 20px;
+      font-size: 26px;
+      font-weight: 600;
       color: var(--text-dim);
-      max-width: 500px;
+      max-width: 600px;
     }
     .live-next-song.queued {
       color: var(--accent);
@@ -613,14 +614,14 @@
     @media (orientation: landscape) {
       .live-main { padding: 0 40px; }
       .live-controls { gap: 48px; }
-      .live-song-title { font-size: clamp(36px, 5vw, 52px); }
+      .live-song-title { font-size: clamp(40px, 6vw, 64px); }
     }
 
     /* Small screens */
     @media (max-height: 500px) {
       .live-song-number { display: none; }
-      .live-song-title { font-size: 28px; margin-bottom: 8px; }
-      .live-next-song { font-size: 17px; }
+      .live-song-title { font-size: 32px; margin-bottom: 8px; }
+      .live-next-song { font-size: 20px; }
       .live-controls { gap: 24px; padding: 10px 0 4px; }
       .btn-play { width: 72px; height: 72px; }
       .btn-skip { width: 56px; height: 56px; }
