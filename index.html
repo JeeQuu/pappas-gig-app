@@ -1251,7 +1251,7 @@
       var startY = 0;
       var startIdx = -1;
       var dropIdx = -1;
-      var items, rects, itemH;
+      var items, rects, step;
 
       container.addEventListener('touchstart', function(e) {
         var handle = e.target.closest('.drag-handle');
@@ -1265,7 +1265,8 @@
         dragging = row;
         startY = e.touches[0].clientY;
         rects = items.map(function(el) { return el.getBoundingClientRect(); });
-        itemH = rects[0] ? rects[0].height : 62;
+        // Mät faktiskt avstånd mellan rader (inkl marginaler)
+        step = items.length > 1 ? (rects[1].top - rects[0].top) : (rects[0] ? rects[0].height + 4 : 66);
 
         dragging.classList.add('dragging');
         items.forEach(function(it) {
@@ -1282,20 +1283,18 @@
         dragging.style.transform = 'translateY(' + dy + 'px) scale(1.03)';
         dragging.style.zIndex = '10';
 
-        var center = rects[startIdx].top + rects[startIdx].height / 2 + dy;
-        var ni = startIdx;
-        for (var i = 0; i < rects.length; i++) {
-          if (center > rects[i].top + rects[i].height / 2) ni = i;
-        }
+        // Räkna ut position baserat på hur långt vi dragit
+        var offset = Math.round(dy / step);
+        var ni = Math.max(0, Math.min(items.length - 1, startIdx + offset));
 
         if (ni !== dropIdx) {
           dropIdx = ni;
           items.forEach(function(it, i) {
             if (it === dragging) return;
             if (startIdx < dropIdx) {
-              it.style.transform = (i > startIdx && i <= dropIdx) ? 'translateY(-' + itemH + 'px)' : '';
+              it.style.transform = (i > startIdx && i <= dropIdx) ? 'translateY(-' + step + 'px)' : '';
             } else if (startIdx > dropIdx) {
-              it.style.transform = (i >= dropIdx && i < startIdx) ? 'translateY(' + itemH + 'px)' : '';
+              it.style.transform = (i >= dropIdx && i < startIdx) ? 'translateY(' + step + 'px)' : '';
             } else {
               it.style.transform = '';
             }
